@@ -6,12 +6,8 @@ const app = express()
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json())
 
-app.route('/').get((req,res) => {
-    res.send('Deu Certo')
-})
-.post((req,res) =>{
-    res.send(req.body)
-})
+const routes = require('./src/routes/userRoutes')
+routes(app)
 
 const port = process.env.PORT || 3000
 
